@@ -1,15 +1,21 @@
 
-<div class="toolbar" role="banner">
-  <h1>Dialexa Pride Month</h1>
+<div class="title" role="banner">
+  <!-- <h1>Dialexa Pride Month</h1> -->
+  <img src="assets/pride_banner.jpg" alt="image">
 </div>
 
 <div class="content" role="main">
-  <mat-card>
-    <mat-card-title class="PRIDE title">PRIDE</mat-card-title>
-  <mat-grid-list cols="5" rowHeight="2:1">
-  <mat-grid-tile *ngFor="let y of prideTitle">{{y}}</mat-grid-tile>
-    <mat-grid-tile  *ngFor=" let x of data" >{{x}}</mat-grid-tile>
-  </mat-grid-list>
+  <mat-card class="card_container">
+    <mat-grid-list cols="5" rowHeight="2:1">
+      <mat-grid-tile class="pride_title" *ngFor="let y of prideTitle">
+        <p>{{y}}</p></mat-grid-tile>
+      <mat-grid-tile
+        *ngFor="let x of data"
+        class="card_container_card"
+        (click) = "isBoxChecked=!isBoxChecked"
+        [ngClass]="isBoxChecked ? 'checked': ''"
+         >{{x}} +{{isBoxChecked}}</mat-grid-tile>
+    </mat-grid-list>
 </mat-card>
 </div>
 
