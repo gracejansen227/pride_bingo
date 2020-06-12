@@ -10,11 +10,11 @@
       <mat-grid-tile class="pride_title" *ngFor="let y of prideTitle">
         <p>{{y}}</p></mat-grid-tile>
       <mat-grid-tile
-        *ngFor="let x of data"
+        *ngFor="let x of data; index as i"
         class="card_container_card"
-        (click) = "isBoxChecked=!isBoxChecked"
-        [ngClass]="isBoxChecked ? 'checked': ''"
-         >{{x}} +{{isBoxChecked}}</mat-grid-tile>
+        (click) = "checkBox(i)"
+        [ngClass]="isBoxChecked[i] ? 'checked': ''"
+         >{{x}}</mat-grid-tile>
     </mat-grid-list>
 </mat-card>
 </div>

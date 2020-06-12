@@ -32,6 +32,7 @@ img {
 
 .card_container_card {
   font-size: 15px;
+  cursor: pointer;
 
   &:nth-child(5n +1){
     &:hover{
