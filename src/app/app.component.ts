@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { data } from '../data/data';
 import { winningPositions } from '../data/winningPositions';
+import confetti from 'canvas-confetti';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ export class AppComponent implements OnInit {
   prideTitle = [];
   isBoxChecked = [];
   winningPositions = [];
+  won = false;
 
   ngOnInit() {
     this.data = data;
@@ -26,7 +28,12 @@ export class AppComponent implements OnInit {
     this.isBoxChecked[i] = !this.isBoxChecked[i];
 
     const winning = this.checkIfWon(this.isBoxChecked);
+    console.log('isBoxChecked formation', this.isBoxChecked);
     console.log('winnininiggg', winning);
+    if (winning) {
+      this.won = true;
+      confetti();
+    }
 
     // do check if won function here
   }
@@ -42,4 +49,8 @@ export class AppComponent implements OnInit {
     }
     return false;
   }
+
+  // winningModal(){
+
+  // }
 }
