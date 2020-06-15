@@ -6,9 +6,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DialogModalComponent } from './dialog-modal/dialog-modal.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DialogModalComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

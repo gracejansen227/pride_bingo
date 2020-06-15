@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { data } from '../data/data';
 import { winningPositions } from '../data/winningPositions';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogModalComponent } from '../app/dialog-modal/dialog-modal.component';
 import confetti from 'canvas-confetti';
 
 @Component({
@@ -9,6 +11,7 @@ import confetti from 'canvas-confetti';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  constructor(public dialog: MatDialog) {}
   title = 'pride-bingo';
   data = [];
   prideTitle = [];
@@ -33,6 +36,7 @@ export class AppComponent implements OnInit {
     if (winning) {
       this.won = true;
       confetti();
+      this.openDialog();
     }
 
     // do check if won function here
@@ -50,7 +54,13 @@ export class AppComponent implements OnInit {
     return false;
   }
 
-  // winningModal(){
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogModalComponent);
 
-  // }
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+      // change what happens here according to button
+      // make function for shuffling card
+    });
+  }
 }
