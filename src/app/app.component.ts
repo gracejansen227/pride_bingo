@@ -3,6 +3,7 @@ import { data } from '../data/data';
 import { winningPositions } from '../data/winningPositions';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogModalComponent } from '../app/dialog-modal/dialog-modal.component';
+import { fireworks } from '../app/utils/fireworks';
 import confetti from 'canvas-confetti';
 
 @Component({
@@ -26,7 +27,6 @@ export class AppComponent implements OnInit {
   }
 
   checkBox(i) {
-    // fix this to make a toggle
     this.isBoxChecked[i] = this.isBoxChecked[i] || false;
     this.isBoxChecked[i] = !this.isBoxChecked[i];
 
@@ -35,11 +35,9 @@ export class AppComponent implements OnInit {
     console.log('winnininiggg', winning);
     if (winning) {
       this.won = true;
-      confetti();
-      this.openDialog();
+      fireworks();
+      setTimeout(() => this.openDialog(), 500);
     }
-
-    // do check if won function here
   }
 
   checkIfWon(arrayOfChecked) {
@@ -57,10 +55,10 @@ export class AppComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(DialogModalComponent);
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
-      // change what happens here according to button
-      // make function for shuffling card
+    dialogRef.afterClosed().subscribe((reset) => {
+      if (reset) {
+        this.isBoxChecked = [];
+      }
     });
   }
 }

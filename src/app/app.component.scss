@@ -1,5 +1,6 @@
 .title {
   align-content: center;
+  display: flex;
   margin: 24px;
 
   h1 {
@@ -16,13 +17,14 @@
 img {
   max-height: 400px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  // margin-left: auto;
+  // margin-right: auto;
 }
 
 .pride_title {
   &:hover {
     background-color: orange;
+    color: white;
   }
   p {
     font-weight: bold;

@@ -1,8 +1,12 @@
-<h2 mat-dialog-title>YOU WON!</h2>
+<h2 mat-dialog-title align="center">YOU WON!</h2>
 <mat-dialog-content class="mat-typography">
-  <h3>Press Cancel to screenshot winning card and send to chat to be checked!</h3>
+  <h3>
+    Press "Exit to Take Screen Shot" to screenshot winning card and send to chat
+    to be checked!
+  </h3>
+  <h3 align="center">Press "Reset Board" to clear board and play again!</h3>
 </mat-dialog-content>
-<mat-dialog-actions align="end">
-  <mat-button mat-button mat-dialog-close>Cancel</mat-button>
-  <mat-button mat-button [mat-dialog-close]="true">Play Again!</mat-button>
+<mat-dialog-actions align="center">
+  <mat-button mat-button mat-dialog-close>Exit to Take Screen Shot</mat-button>
+  <mat-button mat-button [mat-dialog-close]="true">Reset Board</mat-button>
 </mat-dialog-actions>
