@@ -11,16 +11,18 @@
         [value]="name">{{name}}</mat-option>
       </mat-select>
     </mat-form-field>
+    <button mat-button (click)="shuffleCards(data)">Shuffle bingo card</button>
   </mat-card>
   <mat-card>
     <h4>The allowed winning formations are the following:</h4>
     <h4 *ngIf="selectedGame">{{selectedGame}}</h4>
     <div class="mini_board_container">
-    <mat-card class="mini_board" *ngFor="let type of winningPositions" [ngClass]="type.name == selectedGame ? 'highlight' : ''">
-      <h5>{{type.name}}</h5>
+    <mat-card class="mini_board" *ngFor="let type of selectedGameGrid" [ngClass]="type.name == selectedGame ? 'highlight' : ''">
       <mat-grid-list cols="5" rowHeight="1:1">
         <mat-grid-tile
-           >o</mat-grid-tile>
+          class="mini_board_smol_box"
+           *ngFor="let x of type.positions"
+           [ngClass]="x !== undefined ? 'marked':''"></mat-grid-tile>
       </mat-grid-list>
   </mat-card>
 </div>

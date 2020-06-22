@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { DialogModalComponent } from './dialog-modal/dialog-modal.component';
+import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     MatDialogModule,
     MatSelectModule,
     FormsModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

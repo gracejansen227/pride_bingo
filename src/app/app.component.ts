@@ -34,8 +34,6 @@ export class AppComponent implements OnInit {
     this.selectedGame = winningPositions[0].name;
     this.gameModes = [...new Set(this.winningPositions.map((x) => x.name))];
     this.selectedGameGrid = winningPositionsWithNulls;
-    console.log('this.seelcetlkjsdfs', this.selectedGameGrid);
-    // get distinct names of positions here
   }
 
   selectGameMode(selectedGame: string) {
@@ -73,7 +71,13 @@ export class AppComponent implements OnInit {
     dialogRef.afterClosed().subscribe((reset) => {
       if (reset) {
         this.isBoxChecked = [];
+        this.shuffleCards(this.data);
       }
     });
+  }
+
+  shuffleCards(dataArray: any[]) {
+    const shuffledArray = dataArray.sort(() => Math.random() - 0.5);
+    return shuffledArray;
   }
 }

@@ -86,11 +86,11 @@ export const winningPositions = [
 ];
 
 export const winningPositionsWithNulls = winningPositions.map((gameType) => {
-  gameType.positions.map((num) => {
-    const filledPositions = new Array(25);
-    console.log(num);
-    return (filledPositions[num] = num);
+  const emptyArray = new Array(25);
+  const filledArray = gameType.positions.map((num) => {
+    emptyArray[num] = num;
+    return emptyArray;
   });
-
+  gameType.positions = filledArray[0];
   return gameType;
 });

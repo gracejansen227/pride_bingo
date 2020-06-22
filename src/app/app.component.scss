@@ -28,13 +28,29 @@ img {
 
 .mini_board {
   // flex-wrap: wrap;
-  height: 50px;
-  width: 50px;
+  height: 80px;
+  width: 80px;
   margin: 5px;
+
+  h5 {
+    margin: 0px;
+  }
 
   &.highlight {
     border: 3px solid rgb(212, 118, 212);
     background-color: plum;
+  }
+
+  mat-grid-list {
+    border: 1px black dotted;
+  }
+
+}
+
+.mini_board_smol_box {
+  &.marked {
+    background-color: #01CE7B;
+    border: 1px white solid;
   }
 }
 
