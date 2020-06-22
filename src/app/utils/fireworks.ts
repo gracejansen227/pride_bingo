@@ -12,9 +12,9 @@ export function fireworks() {
   setInterval(() => {
     const timeLeft = animationEnd - Date.now();
 
-    if (timeLeft <= 0) {
-      return clearInterval(interval);
-    }
+    // if (timeLeft <= 0) {
+    //   return clearInterval(interval);
+    // }
 
     const particleCount = 50 * (timeLeft / duration);
     // since particles fall down, start a bit higher than random

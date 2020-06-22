@@ -1,10 +1,29 @@
 
 <div class="title" role="banner">
-  <!-- <h1>Dialexa Pride Month</h1> -->
   <img src="assets/Instagram-1.jpg" alt="image">
   <mat-card>
     <h4>Use drop down menu to select the type of game</h4>
+    <mat-form-field>
+      <mat-label>Game Modes</mat-label>
+      <mat-select [(ngModel)]="selectedGame" name="gameType" (ngModelChange)="selectGameMode(selectedGame)">
+        <mat-option
+        *ngFor="let name of gameModes"
+        [value]="name">{{name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card>
+  <mat-card>
     <h4>The allowed winning formations are the following:</h4>
+    <h4 *ngIf="selectedGame">{{selectedGame}}</h4>
+    <div class="mini_board_container">
+    <mat-card class="mini_board" *ngFor="let type of winningPositions" [ngClass]="type.name == selectedGame ? 'highlight' : ''">
+      <h5>{{type.name}}</h5>
+      <mat-grid-list cols="5" rowHeight="1:1">
+        <mat-grid-tile
+           >o</mat-grid-tile>
+      </mat-grid-list>
+  </mat-card>
+</div>
   </mat-card>
 </div>
 

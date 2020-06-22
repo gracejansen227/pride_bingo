@@ -84,3 +84,13 @@ export const winningPositions = [
   vertical5,
   smolCross,
 ];
+
+export const winningPositionsWithNulls = winningPositions.map((gameType) => {
+  gameType.positions.map((num) => {
+    const filledPositions = new Array(25);
+    console.log(num);
+    return (filledPositions[num] = num);
+  });
+
+  return gameType;
+});

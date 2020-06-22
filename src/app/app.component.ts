@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { data } from '../data/data';
-import { winningPositions } from '../data/winningPositions';
+import {
+  winningPositions,
+  winningPositionsWithNulls,
+} from '../data/winningPositions';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogModalComponent } from '../app/dialog-modal/dialog-modal.component';
 import { fireworks } from '../app/utils/fireworks';
@@ -19,11 +22,24 @@ export class AppComponent implements OnInit {
   isBoxChecked = [];
   winningPositions = [];
   won = false;
+  selectedGameGrid = [];
+  gameModes = [];
+
+  @Input() public selectedGame: string;
 
   ngOnInit() {
     this.data = data;
     this.prideTitle = 'PRIDE'.split('');
     this.winningPositions = winningPositions;
+    this.selectedGame = winningPositions[0].name;
+    this.gameModes = [...new Set(this.winningPositions.map((x) => x.name))];
+    this.selectedGameGrid = winningPositionsWithNulls;
+    console.log('this.seelcetlkjsdfs', this.selectedGameGrid);
+    // get distinct names of positions here
+  }
+
+  selectGameMode(selectedGame: string) {
+    console.log('select3dGame', selectedGame);
   }
 
   checkBox(i) {
@@ -31,11 +47,10 @@ export class AppComponent implements OnInit {
     this.isBoxChecked[i] = !this.isBoxChecked[i];
 
     const winning = this.checkIfWon(this.isBoxChecked);
-    console.log('isBoxChecked formation', this.isBoxChecked);
-    console.log('winnininiggg', winning);
     if (winning) {
       this.won = true;
-      fireworks();
+      // fireworks();
+      confetti();
       setTimeout(() => this.openDialog(), 500);
     }
   }

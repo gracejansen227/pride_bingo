@@ -6,7 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 import { DialogModalComponent } from './dialog-modal/dialog-modal.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, DialogModalComponent],
@@ -16,6 +18,8 @@ import { DialogModalComponent } from './dialog-modal/dialog-modal.component';
     MatCardModule,
     MatGridListModule,
     MatDialogModule,
+    MatSelectModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -21,6 +21,23 @@ img {
   // margin-right: auto;
 }
 
+.mini_board_container {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.mini_board {
+  // flex-wrap: wrap;
+  height: 50px;
+  width: 50px;
+  margin: 5px;
+
+  &.highlight {
+    border: 3px solid rgb(212, 118, 212);
+    background-color: plum;
+  }
+}
+
 .pride_title {
   &:hover {
     background-color: orange;
