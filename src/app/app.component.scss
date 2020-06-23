@@ -14,13 +14,19 @@
   display: flex;
   margin: 24px;
 
-  h1 {
-    font-size: 36px;
-    text-align: center;
-  }
-
   mat-card {
     margin: 0 10px 0 0;
+
+    h4 {
+      color: #00B1E3;
+      margin-bottom: 40px;
+    }
+
+    :first-of-type{
+      h4 {
+        margin-bottom: 30px;
+      }
+    }
 
   }
 
@@ -32,6 +38,8 @@
     border: 3px solid transparent;
     border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
     border-image-slice: 1;
+    color: #00B1E3;
+    margin-top: 75px;
   }
 }
 

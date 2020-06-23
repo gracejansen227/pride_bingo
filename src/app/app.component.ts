@@ -9,6 +9,11 @@ import { DialogModalComponent } from '../app/dialog-modal/dialog-modal.component
 import { fireworks } from '../app/utils/fireworks';
 import confetti from 'canvas-confetti';
 
+interface GameDataDTO {
+  name: string;
+  positions: number[];
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -33,6 +38,13 @@ export class AppComponent implements OnInit {
     this.winningPositions = winningPositions;
     this.selectedGame = [];
     this.gameModes = [...new Set(this.winningPositions.map((x) => x.name))];
+    // this.gameModes = [
+    //   'Vertical',
+    //   'Diagonal',
+    //   'Smol Cross',
+    //   'Horizontal',
+    //   'Four Corners',
+    // ];
     this.selectedGameGrid = winningPositionsWithNulls;
   }
 
@@ -54,11 +66,16 @@ export class AppComponent implements OnInit {
   }
 
   checkIfWon(arrayOfChecked) {
-    let winningPositionsList = this.winningPositions;
-    if (this.selectedGame.length > 0) {
-      winningPositionsList = this.winningPositions.filter((game) =>
-        this.selectedGame.includes(game.name)
+    let winningPositionsList = [];
+    if (this.selectedGame.length > 0 && this.winningPositions) {
+      winningPositionsList = this.winningPositions.filter(
+        (game: GameDataDTO) => {
+          //@ts-ignore
+          return this.selectedGame.includes(game.name);
+        }
       );
+    } else {
+      winningPositionsList = this.winningPositions;
     }
     const winningGames = winningPositionsList.map((gameType) => {
       const positions = gameType.positions;
