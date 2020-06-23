@@ -5,7 +5,7 @@
     <h4>Use drop down menu to select the type of game</h4>
     <mat-form-field>
       <mat-label>Game Modes</mat-label>
-      <mat-select [(ngModel)]="selectedGame" name="gameType" (ngModelChange)="selectGameMode(selectedGame)">
+      <mat-select [(ngModel)]="selectedGame" name="gameType" (ngModelChange)="selectGameMode(selectedGame)" multiple>
         <mat-option
         *ngFor="let name of gameModes"
         [value]="name">{{name}}</mat-option>
@@ -15,9 +15,9 @@
   </mat-card>
   <mat-card>
     <h4>The allowed winning formations are the following:</h4>
-    <h4 *ngIf="selectedGame">{{selectedGame}}</h4>
+    <h4 *ngIf="selectedGame">{{selectedGame}} </h4>
     <div class="mini_board_container">
-    <mat-card class="mini_board" *ngFor="let type of selectedGameGrid" [ngClass]="type.name == selectedGame ? 'highlight' : ''">
+    <mat-card class="mini_board" *ngFor="let type of selectedGameGrid" [ngClass]="selectedGame.includes(type.name) ? 'highlight' : ''">
       <mat-grid-list cols="5" rowHeight="1:1">
         <mat-grid-tile
           class="mini_board_smol_box"

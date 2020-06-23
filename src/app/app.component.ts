@@ -25,19 +25,19 @@ export class AppComponent implements OnInit {
   selectedGameGrid = [];
   gameModes = [];
 
-  @Input() public selectedGame: string;
+  @Input() public selectedGame: [];
 
   ngOnInit() {
     this.data = data;
     this.prideTitle = 'PRIDE'.split('');
     this.winningPositions = winningPositions;
-    this.selectedGame = winningPositions[0].name;
+    this.selectedGame = [];
     this.gameModes = [...new Set(this.winningPositions.map((x) => x.name))];
     this.selectedGameGrid = winningPositionsWithNulls;
   }
 
-  selectGameMode(selectedGame: string) {
-    console.log('select3dGame', selectedGame);
+  selectGameMode(selectedGame: []) {
+    // console.log('selectedGame', selectedGame);
   }
 
   checkBox(i) {
@@ -54,7 +54,13 @@ export class AppComponent implements OnInit {
   }
 
   checkIfWon(arrayOfChecked) {
-    const winningGames = this.winningPositions.map((gameType) => {
+    let winningPositionsList = this.winningPositions;
+    if (this.selectedGame.length > 0) {
+      winningPositionsList = this.winningPositions.filter((game) =>
+        this.selectedGame.includes(game.name)
+      );
+    }
+    const winningGames = winningPositionsList.map((gameType) => {
       const positions = gameType.positions;
       return positions.every((position) => arrayOfChecked[position] === true);
     });
@@ -77,7 +83,6 @@ export class AppComponent implements OnInit {
   }
 
   shuffleCards(dataArray: any[]) {
-    const shuffledArray = dataArray.sort(() => Math.random() - 0.5);
-    return shuffledArray;
+    return dataArray.sort(() => Math.random() - 0.5);
   }
 }

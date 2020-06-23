@@ -1,3 +1,14 @@
+.mat-card:not([class*=mat-elevation-z]){
+  box-shadow: none;
+}
+.mat-select-trigger
+  .mat-select-value
+    .mat-select-arrow-wrapper
+      .mat-select-arrow {
+        color:  #b8fd33 ;
+      }
+
+
 .title {
   align-content: center;
   display: flex;
@@ -6,6 +17,21 @@
   h1 {
     font-size: 36px;
     text-align: center;
+  }
+
+  mat-card {
+    margin: 0 10px 0 0;
+
+  }
+
+  mat-form-field, button {
+    margin-bottom: 20px;
+  }
+
+  button {
+    border: 3px solid transparent;
+    border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+    border-image-slice: 1;
   }
 }
 
@@ -17,8 +43,7 @@
 img {
   max-height: 400px;
   display: block;
-  // margin-left: auto;
-  // margin-right: auto;
+  margin-right: 10px;
 }
 
 .mini_board_container {
@@ -42,7 +67,9 @@ img {
   }
 
   mat-grid-list {
-    border: 1px black dotted;
+    border: 3px solid transparent;
+    border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+    border-image-slice: 1;
   }
 
 }
