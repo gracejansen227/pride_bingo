@@ -1,9 +1,14 @@
 .mat-card:not([class*=mat-elevation-z]){
   box-shadow: none;
 }
+
 .mat-select-trigger
   .mat-select-value
     .mat-select-arrow-wrapper
+      .mat-select-arrow {
+        color:  #b8fd33 ;
+      }
+
       .mat-select-arrow {
         color:  #b8fd33 ;
       }
@@ -40,6 +45,10 @@
     border-image-slice: 1;
     color: #00B1E3;
     margin-top: 75px;
+  }
+
+  .options {
+    color: blue;
   }
 }
 
@@ -91,7 +100,7 @@ img {
 
 .pride_title {
   &:hover {
-    background-color: orange;
+    background-color: black;
     color: white;
   }
   p {

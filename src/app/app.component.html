@@ -7,6 +7,7 @@
       <mat-label>Game Modes</mat-label>
       <mat-select [(ngModel)]="selectedGame" name="gameType" (ngModelChange)="selectGameMode(selectedGame)" multiple>
         <mat-option
+        class="options"
         *ngFor="let name of gameModes"
         [value]="name">{{name}}</mat-option>
       </mat-select>
