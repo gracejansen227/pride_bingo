@@ -6,7 +6,6 @@ import {
 } from '../data/winningPositions';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogModalComponent } from '../app/dialog-modal/dialog-modal.component';
-import { fireworks } from '../app/utils/fireworks';
 import confetti from 'canvas-confetti';
 
 interface GameDataDTO {
@@ -38,19 +37,10 @@ export class AppComponent implements OnInit {
     this.winningPositions = winningPositions;
     this.selectedGame = [];
     this.gameModes = [...new Set(this.winningPositions.map((x) => x.name))];
-    // this.gameModes = [
-    //   'Vertical',
-    //   'Diagonal',
-    //   'Smol Cross',
-    //   'Horizontal',
-    //   'Four Corners',
-    // ];
     this.selectedGameGrid = winningPositionsWithNulls;
   }
 
-  selectGameMode(selectedGame: []) {
-    // console.log('selectedGame', selectedGame);
-  }
+  selectGameMode(selectedGame: []) {}
 
   checkBox(i) {
     this.isBoxChecked[i] = this.isBoxChecked[i] || false;
@@ -59,7 +49,6 @@ export class AppComponent implements OnInit {
     const winning = this.checkIfWon(this.isBoxChecked);
     if (winning) {
       this.won = true;
-      // fireworks();
       confetti();
       setTimeout(() => this.openDialog(), 500);
     }
